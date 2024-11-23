@@ -26,7 +26,7 @@ public class Algebra {
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
 		if(x2 < 0){
-			return minus(x1, x2);
+			return minus(x1, Math.abs(x2));
 		}
 		for(int i = 0; i < x2; i++){
 			x1++;
@@ -52,11 +52,18 @@ public class Algebra {
 		if(x1 == 0 || x2 == 0){
 			return 0;
 		}
-		int first_x = x1;
-		for(int i = 0; i < x2 - 1; i++){
-			x1 = plus(x1, first_x);
+		if((x1 < 0 && x2 > 0) || (x1 > 0 && x2 < 0 )){
+			int sign = -1;
+			return 
 		}
-		return x1;
+		else{
+			int first_x = x1;
+			for(int i = 0; i < x2 - 1; i++){
+				x1 = plus(x1, first_x);
+			}
+			return x1;
+		}
+	
 	}
 
 	// Returns x^n (for n >= 0)
