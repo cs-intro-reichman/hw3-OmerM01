@@ -116,6 +116,7 @@ public class Algebra {
 			div++;
 		}
 		div--; //becuase if 7/2 for example, we need to lower div by 1 becuase at the last iteration it will be 4. (7/2=3)
+
 		if(isNegative) return minus(0, div);
 		return div;
 	}
@@ -126,10 +127,17 @@ public class Algebra {
 		if(x1 == 0) return 0;
 		if(x2 == 0) return x1;
 
-		int q = div(x1, x2);
-		int remainder = minus(x1,times(q, x2));
-		if(remainder < 0 && x2 > 0) remainder = plus(remainder, x2);
-		else if( remainder > 0 && x2 < 0) remainder = minus(remainder, x2);
+		//does the remainder calculation 
+		int div = div(x1, x2);
+		int remainder = minus(x1,times(div, x2));
+
+		//checkes end test cases
+		if(remainder < 0 && x2 > 0){
+			remainder = plus(remainder, x2);
+		} else if(remainder > 0 && x2 < 0){
+			remainder = minus(remainder, x2);
+		}
+
 		return remainder;
 	}	
 
