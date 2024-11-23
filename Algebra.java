@@ -49,66 +49,74 @@ public class Algebra {
 		return x1;
 	}
 
-	// Returns x1 * x2
-	public static int times(int x1, int x2) {
-		// Replace the following statement with your code
-		if(x1 == 0 || x2 == 0){
-			return 0;
-		}
-		if((x1 < 0 && x2 > 0) || (x1 > 0 && x2 < 0 )){
-			int sign = -1;
-			return 
-		}
-		else{
-			int first_x = x1;
-			for(int i = 0; i < x2 - 1; i++){
-				x1 = plus(x1, first_x);
-			}
-			return x1;
-		}
+	// // Returns x1 * x2
+	// public static int times(int x1, int x2) {
+	// 	// Replace the following statement with your code
+	// 	if(x1 == 0 || x2 == 0){
+	// 		return 0;
+	// 	}
+	// 	if((x1 < 0 && x2 > 0) || (x1 > 0 && x2 < 0 )){
+			
+	// 	}
+	// 	if(x1 < 0 && x2 < 0){
+	// 		Math.abs(x2);
+	// 		Math.abs(x1);
+	// 		int first_x = x1;
+	// 		for(int i = 0; i < x2 - 1; i++){
+	// 			x1 = plus(x1, first_x);
+	// 		}
+	// 		return x1;
+	// 	}
+	// 	else{
+	// 		int first_x = x1;
+	// 		for(int i = 0; i < x2 - 1; i++){
+	// 			x1 = plus(x1, first_x);
+	// 		}
+	// 		return x1;
+	// 	}
 	
-	}
+	// }
 
-	// Returns x^n (for n >= 0)
-	public static int pow(int x, int n) {
-		if(x == 0) return 0;
-		if(n == 0) return 1;
+	// // Returns x^n (for n >= 0)
+	// public static int pow(int x, int n) {
+	// 	if(x == 0) return 0;
+	// 	if(n == 0) return 1;
 
-		int first_x = x;
-		for(int i = 0; i < n - 1; i++){
-			x = times(x, first_x);
-		}
-		return x;
-	}
+	// 	int first_x = x;
+	// 	for(int i = 0; i < n - 1; i++){
+	// 		x = times(x, first_x);
+	// 	}
+	// 	return x;
+	// }
 
-	// Returns the integer part of x1 / x2 
-	public static int div(int x1, int x2) {
-		if(x1 == 0) return 0;
-		if(x2 == 0) return -1;
+	// // Returns the integer part of x1 / x2 
+	// public static int div(int x1, int x2) {
+	// 	if(x1 == 0) return 0;
+	// 	if(x2 == 0) return -1;
 
-		int div = 0;
-		while(div * x2 != x1){
-			div++;
-		}
-		return div;
-	}
+	// 	int div = 0;
+	// 	while(div * x2 != x1){
+	// 		div++;
+	// 	}
+	// 	return div;
+	// }
 	
 
-	// Returns x1 % x2
-	public static int mod(int x1, int x2) {
-		if(x1 == 0) return 0;
-		if(x2 == 0) return x1;
+	// // Returns x1 % x2
+	// public static int mod(int x1, int x2) {
+	// 	if(x1 == 0) return 0;
+	// 	if(x2 == 0) return x1;
 
-		int q = div(x1, x2);
-		int remainder = minus(x1,times(q, x2));
-		if(remainder < 0 && x2 > 0) remainder = plus(remainder, x2);
-		else if( remainder > 0 && x2 < 0) remainder = minus(remainder, x2);
-		return remainder;
-	}	
+	// 	int q = div(x1, x2);
+	// 	int remainder = minus(x1,times(q, x2));
+	// 	if(remainder < 0 && x2 > 0) remainder = plus(remainder, x2);
+	// 	else if( remainder > 0 && x2 < 0) remainder = minus(remainder, x2);
+	// 	return remainder;
+	// }	
 
-	// Returns the integer part of sqrt(x) 
-	public static int sqrt(int x) {
-		// Replace the following statement with your code
-		return 0;
-	}	  	  
+	// // Returns the integer part of sqrt(x) 
+	// public static int sqrt(int x) {
+	// 	// Replace the following statement with your code
+	// 	return 0;
+	// }	  	  
 }
