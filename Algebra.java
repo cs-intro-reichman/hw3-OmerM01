@@ -59,11 +59,12 @@ public class Algebra {
 		boolean isNegative = (x1 < 0 && x2 > 0) || (x1 > 0 && x2 < 0); // checked whether one of the variebles are negative
 		x2 = Math.abs(x2);
 		x1 = Math.abs(x1);
-
 		int result = 0;
+
 		for(int i = 0; i < x2 ; i++){
 				result = plus(result, x1);
 		}
+
 		if (isNegative) {
 			result = minus(0, result); // here i used the minus function to flip the sign
 		}
@@ -72,20 +73,32 @@ public class Algebra {
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		if(x == 0){
-			return 0;
+		// firts, handle the '0' and '1' end cases
+		if(x == 0) return 0;
+		if(n == 0) return 1;
+		if (n == 1) return x;
+
+		//check if n is odd or even
+		int counter = 0;
+		while(counter < n){
+			counter = plus(counter, 2);
 		}
-		if(n == 0){
-			return 1;
-		}
-		if (x < 0 && ) {
-			
-		}
-		int first_x = x;
-		for(int i = 0; i < n - 1; i++){
-			x = times(x, first_x);
-		}
-		return x;
+
+		boolean is_x_Negative = (x < 0);
+		boolean is_n_Even = (counter == n);
+		x = Math.abs(x);
+		
+		int result = x;
+   		for (int i = 0; i < n - 1; i++) {
+        	result = times(result, x); 
+    	}
+
+		//uses the bolleanes we've created to fix the sign of the realust (negative values)
+    	if (is_x_Negative && !is_n_Even) {
+        	result = minus(0, result); // Flip the sign
+    	}
+
+    	return result;
 	}
 
 	// Returns the integer part of x1 / x2 
