@@ -149,7 +149,6 @@ public class Algebra {
 		
 		int sqrt = 1;
 		while(sqrt <= div(x, sqrt)){
-			System.out.println("Checking sqrt = " + sqrt + ", x/sqrt = " + (x / sqrt));
 			sqrt ++;
 		}
 		sqrt--;
