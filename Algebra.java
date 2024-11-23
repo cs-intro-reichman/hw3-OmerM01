@@ -83,11 +83,12 @@ public class Algebra {
 		while(counter < n){
 			counter = plus(counter, 2);
 		}
-
-		boolean is_x_Negative = (x < 0);
 		boolean is_n_Even = (counter == n);
+
+		boolean is_x_Negative = (x < 0); //check if x is negative
+
+		//do the real power action
 		x = Math.abs(x);
-		
 		int result = x;
    		for (int i = 0; i < n - 1; i++) {
         	result = times(result, x); 
@@ -106,10 +107,16 @@ public class Algebra {
 		if(x1 == 0) return 0;
 		if(x2 == 0) return -1;
 
+		boolean isNegative = (x1 < 0 && x2 > 0) || (x1 > 0 && x2 < 0); 
+		x1 = Math.abs(x1);
+    	x2 = Math.abs(x2);
+
 		int div = 0;
-		while(div * x2 != x1){
+		while(div * x2 <= x1){
 			div++;
 		}
+		div--; //becuase if 7/2 for example, we need to lower div by 1 becuase at the last iteration it will be 4. (7/2=3)
+		if(isNegative) return minus(0, div);
 		return div;
 	}
 	
