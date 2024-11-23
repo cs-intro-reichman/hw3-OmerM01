@@ -148,10 +148,10 @@ public class Algebra {
 		if(x < 0) return -1;
 		
 		int sqrt = 0;
-		while(times(sqrt, sqrt) <= x){
+		while(sqrt <= div(x, sqrt)){
 			sqrt ++;
 		}
 
-		return sqrt;
+		return minus(sqrt, 1);
 	}	  	  
 }
