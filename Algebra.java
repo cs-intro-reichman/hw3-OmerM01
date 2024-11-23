@@ -19,8 +19,8 @@ public class Algebra {
    		// System.out.println(mod(25,7));   // 25 % 7
    		// System.out.println(mod(120,6));  // 120 % 6    
    		System.out.println(sqrt(36));
-		System.out.println(sqrt(263169));
-   		System.out.println(sqrt(76123));
+		// System.out.println(sqrt(263169));
+   		// System.out.println(sqrt(76123));
 	}  
 
 	// Returns x1 + x2
@@ -147,11 +147,12 @@ public class Algebra {
 		if(x == 1) return 1;
 		if(x < 0) return -1;
 		
-		int sqrt = 0;
+		int sqrt = 1;
 		while(sqrt <= div(x, sqrt)){
+			System.out.println("Checking sqrt = " + sqrt + ", x/sqrt = " + (x / sqrt));
 			sqrt ++;
 		}
-
-		return minus(sqrt, 1);
+		sqrt--;
+		return sqrt;
 	}	  	  
 }
