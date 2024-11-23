@@ -152,6 +152,6 @@ public class Algebra {
 			sqrt ++;
 		}
 
-		return sqrt--;
+		return sqrt;
 	}	  	  
 }
