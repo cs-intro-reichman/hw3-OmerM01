@@ -61,8 +61,8 @@ public class Algebra {
 		x1 = Math.abs(x1);
 
 		int result = 0;
-		for(int i = 0; i < x2 - 1; i++){
-				x1 = plus(result, x1);
+		for(int i = 0; i < x2 ; i++){
+				result = plus(result, x1);
 		}
 		if (isNegative) {
 			result = minus(0, result); // here i used the minus function to flip the sign
@@ -72,9 +72,15 @@ public class Algebra {
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		if(x == 0) return 0;
-		if(n == 0) return 1;
-
+		if(x == 0){
+			return 0;
+		}
+		if(n == 0){
+			return 1;
+		}
+		if (x < 0 && ) {
+			
+		}
 		int first_x = x;
 		for(int i = 0; i < n - 1; i++){
 			x = times(x, first_x);
