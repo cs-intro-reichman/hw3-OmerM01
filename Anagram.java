@@ -30,8 +30,8 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		str1 = preProcess(str1);
-		str2 = preProcess(str2);
+		str1 = removeSpaces(preProcess(str1));
+		str2 = removeSpaces(preProcess(str2));
 
 		if(str1.length() != str2.length()){
 			return false;
@@ -72,6 +72,8 @@ public class Anagram {
 				newString += (char) (c + 32);
 			} else if (c >= 'a' && c <= 'z') { 
 				newString += c;
+			} else if(c == ' '){
+				newString += c;
 			}
 		}
 
@@ -97,5 +99,16 @@ public class Anagram {
 		}
 
 		return anagram;
+	}
+
+	public static String removeSpaces(String str) {
+		String noSpaces = "";
+		for (int i = 0; i < str.length(); i++) {
+			char c = str.charAt(i);
+			if (c != ' ') { 
+				noSpaces += c;
+			}
+		}
+		return noSpaces; 
 	}
 }
