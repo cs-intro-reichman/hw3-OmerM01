@@ -8,12 +8,14 @@ public class Anagram {
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort")); // true
 
 		// Tests the preProcess function.
-		System.out.println(preProcess("What? No way!!!"));
+		System.out.println(preProcess("William Shakespeare"));
+		System.out.println(preProcess("I am a weakish speller"));
+
 		
-		// Tests the randomAnagram function.
+		// // Tests the randomAnagram function.
 		System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
 		
-		// Performs a stress test of randomAnagram 
+		// // Performs a stress test of randomAnagram 
 		String str = "1234567";
 		Boolean pass = true;
 		//// 10 can be changed to much larger values, like 1000
@@ -28,22 +30,84 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		// Replace the following statement with your code
-		return false;
+		str1 = removeSpaces(preProcess(str1));
+		str2 = removeSpaces(preProcess(str2));
+
+		if(str1.length() != str2.length()){
+			return false;
+		}
+
+		for(int i = 0; i < str1.length(); i++){
+			int how_Many_in_Str1 = 0;
+			int how_Many_in_Str2 = 0;
+			
+			for (int j = 0; j < str1.length(); j++) {
+				if (str1.charAt(j) == str1.charAt(i)) {
+					how_Many_in_Str1++;
+				}
+			}
+	
+			for (int j = 0; j < str2.length(); j++) {
+				if (str2.charAt(j) == str1.charAt(i)) {
+					how_Many_in_Str2++;
+				}
+			}
+	
+			if (how_Many_in_Str1 != how_Many_in_Str2) {
+				return false;
+			}
+		}
+		return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
-		// Replace the following statement with your code
-		return "";
+		String newString = "";
+
+		for(int i = 0; i < str.length(); i++){
+			char c = str.charAt(i);
+			if(c >= 'A' && c <= 'Z'){
+				newString += (char) (c + 32);
+			} else if (c >= 'a' && c <= 'z') { 
+				newString += c;
+			} else if(c == ' '){
+				newString += c;
+			}
+		}
+		return newString;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		// Replace the following statement with your code
-		return "";
+		String anagram = "";
+		while(str.length() > 0){
+			int rndChar = (int) (Math.random() * str.length());
+			anagram = anagram + str.charAt(rndChar);
+
+			//take out the random char from str
+			String newStr = "";
+        	for (int i = 0; i < str.length(); i++){
+          		if (i != rndChar){ 
+                	newStr += str.charAt(i);
+            	}
+        	}
+        	str = newStr; // Update the original string to be the new one without the random char
+		}
+
+		return anagram;
+	}
+
+	public static String removeSpaces(String str) {
+		String noSpaces = "";
+		for (int i = 0; i < str.length(); i++) {
+			char c = str.charAt(i);
+			if (c != ' ') { 
+				noSpaces += c;
+			}
+		}
+		return noSpaces; 
 	}
 }
