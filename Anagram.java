@@ -32,6 +32,7 @@ public class Anagram {
 	public static boolean isAnagram(String str1, String str2) {
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
+
 		if(str1.length() != str2.length()){
 			return false;
 		}
@@ -39,15 +40,15 @@ public class Anagram {
 		for(int i = 0; i < str1.length(); i++){
 			int how_Many_in_Str1 = 0;
 			int how_Many_in_Str2 = 0;
-	
+			
 			for (int j = 0; j < str1.length(); j++) {
 				if (str1.charAt(j) == str1.charAt(i)) {
 					how_Many_in_Str1++;
 				}
 			}
 	
-			for (int n = 0; n < str2.length(); n++) {
-				if (str2.charAt(n) == str1.charAt(i)) {
+			for (int j = 0; j < str2.length(); j++) {
+				if (str2.charAt(j) == str1.charAt(i)) {
 					how_Many_in_Str2++;
 				}
 			}
@@ -56,9 +57,7 @@ public class Anagram {
 				return false;
 			}
 		}
-
 		return true;
-
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
@@ -66,7 +65,7 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		String newString = "";
-		
+
 		for(int i = 0; i < str.length(); i++){
 			if(str.charAt(i) >= 'A' && str.charAt(i) <= 'Z'){
 				newString = newString + (char) (str.charAt(i) + 32);
