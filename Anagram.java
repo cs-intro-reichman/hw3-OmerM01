@@ -36,20 +36,29 @@ public class Anagram {
 			return false;
 		}
 
-		int counter = 0;
 		for(int i = 0; i < str1.length(); i++){
-			int j = 0;
-			while(){
-				j++;
+			int countInStr1 = 0;
+			int countInStr2 = 0;
+	
+			for (int j = 0; j < str1.length(); j++) {
+				if (str1.charAt(j) == str1.charAt(i)) {
+					countInStr1++;
+				}
 			}
-			
+	
+			for (int n = 0; n < str2.length(); n++) {
+				if (str2.charAt(n) == str1.charAt(i)) {
+					countInStr2++;
+				}
+			}
+	
+			if (countInStr1 != countInStr2) {
+				return false;
+			}
 		}
 
-		if(counter == str2.length()){
-			return true;
-		} else{
-			return false;
-		}
+		return true;
+		
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
