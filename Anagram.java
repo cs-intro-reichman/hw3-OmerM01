@@ -92,7 +92,7 @@ public class Anagram {
                 	newStr += str.charAt(i);
             	}
         	}
-        	str = newStr; // Update the original string
+        	str = newStr; // Update the original string to be the new one without the random char
 		}
 
 		return anagram;
