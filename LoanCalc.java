@@ -61,6 +61,7 @@ public class LoanCalc {
 		double H = bruteForceSolver(loan, rate, n, epsilon) + 1;
 		double g = (L + H)/2;
 		iterationCounter = 0;
+		
 		while((H-L) > epsilon){
 			if(endBalance(loan, rate, n, g) * endBalance(loan, rate, n, L) > 0){
 				L = g;
