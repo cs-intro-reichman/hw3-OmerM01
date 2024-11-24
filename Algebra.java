@@ -84,8 +84,7 @@ public class Algebra {
 			counter = plus(counter, 2);
 		}
 		boolean is_n_Even = (counter == n);
-
-		boolean is_x_Negative = (x < 0); //check if x is negative
+		boolean is_x_Negative = (x < 0); 
 
 		//do the real power action
 		x = Math.abs(x);
@@ -93,12 +92,10 @@ public class Algebra {
    		for (int i = 0; i < n - 1; i++) {
         	result = times(result, x); 
     	}
-
 		//uses the bolleanes we've created to fix the sign of the realust (negative values)
     	if (is_x_Negative && !is_n_Even) {
         	result = minus(0, result); // Flip the sign
     	}
-
     	return result;
 	}
 
@@ -117,7 +114,9 @@ public class Algebra {
 		}
 		div--; //becuase if 7/2 for example, we need to lower div by 1 becuase at the last iteration it will be 4. (7/2=3)
 
-		if(isNegative) return minus(0, div);
+		if(isNegative){
+			return minus(0, div);
+		}
 		return div;
 	}
 	
@@ -137,7 +136,6 @@ public class Algebra {
 		} else if(remainder > 0 && x2 < 0){
 			remainder = minus(remainder, x2);
 		}
-
 		return remainder;
 	}	
 

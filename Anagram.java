@@ -76,7 +76,6 @@ public class Anagram {
 				newString += c;
 			}
 		}
-
 		return newString;
 	} 
 	   
