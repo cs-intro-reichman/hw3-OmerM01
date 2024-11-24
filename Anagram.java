@@ -67,14 +67,11 @@ public class Anagram {
 		String newString = "";
 
 		for(int i = 0; i < str.length(); i++){
-			if(str.charAt(i) >= 'A' && str.charAt(i) <= 'Z'){
-				newString = newString + (char) (str.charAt(i) + 32);
-			}
-			else if(str.charAt(i) >= 'a' && str.charAt(i) <= 'z'){
-				newString = newString + (char) str.charAt(i);
-			}
-			else if(str.charAt(i) == ' '){
-				newString = newString + (char) str.charAt(i);
+			char c = str.charAt(i);
+			if(c >= 'A' && c <= 'Z'){
+				newString += (char) (c + 32);
+			} else if (c >= 'a' && c <= 'z') { 
+				newString += c;
 			}
 		}
 
