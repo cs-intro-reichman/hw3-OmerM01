@@ -66,6 +66,7 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		String newString = "";
+		
 		for(int i = 0; i < str.length(); i++){
 			if(str.charAt(i) >= 'A' && str.charAt(i) <= 'Z'){
 				newString = newString + (char) (str.charAt(i) + 32);
@@ -77,6 +78,7 @@ public class Anagram {
 				newString = newString + (char) str.charAt(i);
 			}
 		}
+
 		return newString;
 	} 
 	   
