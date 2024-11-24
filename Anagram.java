@@ -73,6 +73,9 @@ public class Anagram {
 			else if(str.charAt(i) >= 'a' && str.charAt(i) <= 'z'){
 				newString = newString + (char) str.charAt(i);
 			}
+			else if(str.charAt(i) == ' '){
+				newString = newString + (char) str.charAt(i);
+			}
 		}
 		return newString;
 	} 
